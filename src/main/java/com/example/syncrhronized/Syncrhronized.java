@@ -29,6 +29,12 @@ public class Syncrhronized {
             i++;
             String nameThread = Thread.currentThread().getName();
             System.out.println(nameThread + ": " + i);
+
+            /* synchronized (this) { Outra forma de tratar concorrência de threads.
+                i++;
+                String nameThread = Thread.currentThread().getName();
+                System.out.println(nameThread + ": " + i);
+            } */
         }
     }
 }
