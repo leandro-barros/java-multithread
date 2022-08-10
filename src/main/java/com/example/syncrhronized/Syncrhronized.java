@@ -24,7 +24,8 @@ public class Syncrhronized {
     public static class MyRunnable implements Runnable {
 
         @Override
-        public void run() {
+        // public void run() {
+        public synchronized void run() {
             i++;
             String nameThread = Thread.currentThread().getName();
             System.out.println(nameThread + ": " + i);
