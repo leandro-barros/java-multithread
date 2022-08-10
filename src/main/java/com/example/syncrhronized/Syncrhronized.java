@@ -21,14 +21,24 @@ public class Syncrhronized {
 
     }
 
-    public static class MyRunnable implements Runnable {
-
-        @Override
-        // public void run() {
-        public synchronized void run() {
+    public static void prints() {
+        synchronized (Syncrhronized.class) {
             i++;
             String nameThread = Thread.currentThread().getName();
             System.out.println(nameThread + ": " + i);
+        }
+    }
+
+    public static class MyRunnable implements Runnable {
+
+        @Override
+        // public synchronized void run() {
+        public void run() {
+           prints();
+
+            /* i++;
+            String nameThread = Thread.currentThread().getName();
+            System.out.println(nameThread + ": " + i); */
 
             /* synchronized (this) { Outra forma de tratar concorrência de threads.
                 i++;
