@@ -12,11 +12,15 @@ public class Threads_1 {
         threadRunnable.start(); // Executa em uma nova thread.
 
         // Runnable with lambida
-        Thread thread1 = new Thread(
+        Thread thread2 = new Thread(
                 () -> System.out.println("Thread with lambida")
         );
-        thread1.start();
+        thread2.start();
         // thread1.start(); No make, throw exception
+
+        // Thread 3
+        Thread thread3 = new Thread(new MyRunnable());
+        thread3.start();
 
     }
 
