@@ -1,6 +1,6 @@
 package com.example.syncrhronized;
 
-public class Syncrhronized_1 {
+public class Synchronized_1 {
 
     static int i = -1;
 
@@ -22,7 +22,7 @@ public class Syncrhronized_1 {
     }
 
     public static void prints() {
-        synchronized (Syncrhronized_1.class) {
+        synchronized (Synchronized_1.class) {
             i++;
             String nameThread = Thread.currentThread().getName();
             System.out.println(nameThread + ": " + i);
