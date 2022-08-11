@@ -7,11 +7,13 @@ import java.util.List;
 
 public class SynchronizedCollections {
 
-    // Não use List ou Map para multhread
+    // Não use List ou Map com multhread
     private static List<String> listThread = new ArrayList<>();
 
     public static void main(String[] args) throws InterruptedException {
-        // listThread = Collections.synchronizedList(listThread); forma de a lista sicronizar.
+         listThread = Collections.synchronizedList(listThread); // forma de a lista sicronizar.
+        // listThread = Collections.synchronizedMap(listThread); forma de o Map sicronizar.
+        // É melhor utilizar dessa forma do que com a palavra Synchronized no método run().
 
         MyRunnable myRunnable = new MyRunnable();
 
