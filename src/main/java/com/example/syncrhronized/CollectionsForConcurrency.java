@@ -36,6 +36,8 @@ public class CollectionsForConcurrency {
         public void run() {
 //            listThread.add("Add value in list");
             map.put(new Random().nextInt(), "Add value in list");
+            String name = Thread.currentThread().getName();
+            System.out.println(name + " inseriu na lista");
         }
     }
 }
