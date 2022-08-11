@@ -1,11 +1,16 @@
 package com.example.syncrhronized;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class CollectionsForConcurrency {
 
-    private static List<String> listThread = new CopyOnWriteArrayList<>();
+    // Coleções do tipo Thread-safe
+//    private static List<String> listThread = new CopyOnWriteArrayList<>();
+    private static Map<Integer, String> map = new HashMap<>();
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -20,7 +25,8 @@ public class CollectionsForConcurrency {
         thread2.start();
 
         Thread.sleep(500);
-        System.out.println(listThread);
+//        System.out.println(listThread);
+        System.out.println(map);
 
     }
 
@@ -28,7 +34,8 @@ public class CollectionsForConcurrency {
 
         @Override
         public void run() {
-            listThread.add("Add value in list");
+//            listThread.add("Add value in list");
+            map.put(new Random().nextInt(), "Add value in list");
         }
     }
 }
