@@ -1,4 +1,4 @@
-package com.example;
+package com.example.startthread;
 
 public class Threads_1 {
 
