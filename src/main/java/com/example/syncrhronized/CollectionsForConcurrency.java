@@ -1,12 +1,11 @@
 package com.example.syncrhronized;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class CollectionsForConcurrency {
 
-    private static List<String> listThread = new ArrayList<>();
+    private static List<String> listThread = new CopyOnWriteArrayList<>();
 
     public static void main(String[] args) throws InterruptedException {
 
