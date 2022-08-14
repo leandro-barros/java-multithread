@@ -1,8 +1,10 @@
 package com.example.atomicclass;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class AtomicClass {
 
-    static int i = -1;
+    static AtomicInteger i = new AtomicInteger(-1);
 
     public static void main(String[] args) {
         MyRunnable myRunnable = new MyRunnable();
@@ -20,9 +22,8 @@ public class AtomicClass {
     public static class MyRunnable implements Runnable {
         @Override
         public void run() {
-            i++;
             String nameThread = Thread.currentThread().getName();
-            System.out.println(nameThread + ": " + i);
+            System.out.println(nameThread + ": " + i.incrementAndGet());
         }
     }
 
