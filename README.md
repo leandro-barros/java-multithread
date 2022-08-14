@@ -24,3 +24,6 @@
 </h4>
 
 ## 💻 Sobre o projeto
+
+
+## 🚀 Executar o projeto
