@@ -15,4 +15,11 @@ public class Volatile {
             System.out.println(number);
         }
     }
+
+    public static void main(String[] args) {
+        Thread thread = new Thread(new MyRunnable());
+        thread.start();
+        number = 42;
+        prepared = true;
+    }
 }
