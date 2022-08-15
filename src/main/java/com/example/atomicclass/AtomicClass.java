@@ -1,10 +1,12 @@
 package com.example.atomicclass;
 
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AtomicClass {
 
-    static AtomicInteger i = new AtomicInteger(-1);
+//    static AtomicInteger i = new AtomicInteger(-1);
+    static AtomicBoolean b = new AtomicBoolean(false);
 
     public static void main(String[] args) {
         MyRunnable myRunnable = new MyRunnable();
@@ -23,7 +25,8 @@ public class AtomicClass {
         @Override
         public void run() {
             String nameThread = Thread.currentThread().getName();
-            System.out.println(nameThread + ": " + i.incrementAndGet());
+//            System.out.println(nameThread + ": " + i.incrementAndGet());
+            System.out.println(nameThread + ": " + b.compareAndExchange(false, true));
         }
     }
 
