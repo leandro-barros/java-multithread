@@ -1,5 +1,7 @@
 package com.example.executors.multhread;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
 
@@ -9,14 +11,28 @@ public class ExecutorsMultithread {
         ExecutorService executor = null;
         try {
 //            executor = Executors.newFixedThreadPool(4);
-            executor = Executors.newCachedThreadPool(); // Cria thread até quando precisar no que pode ser um problema
-            Future<String> future1 = executor.submit(new Task());
-            System.out.println(future1.get());
-            Future<String> future2 = executor.submit(new Task());
-            Future<String> future3 = executor.submit(new Task());
+//            executor = Executors.newCachedThreadPool(); // Cria thread até quando precisar no que pode ser um problema
+//            Future<String> future1 = executor.submit(new Task());
+//            System.out.println(future1.get());
+//            Future<String> future2 = executor.submit(new Task());
+//            Future<String> future3 = executor.submit(new Task());
+//            System.out.println(future2.get());
+//            System.out.println(future3.get());
+//            executor.shutdown();
 
-            System.out.println(future2.get());
-            System.out.println(future3.get());
+            executor = Executors.newCachedThreadPool();
+
+            List<Task> tasks = new ArrayList<>();
+            for (int i = 0; i < 100; i++) {
+                tasks.add(new Task());
+            }
+
+            List<Future<String>> futures = executor.invokeAll(tasks);
+
+            for (Future<String> future : futures) {
+                System.out.println(future.get());
+            }
+
             executor.shutdown();
         } catch (Exception e) {
             throw e;
