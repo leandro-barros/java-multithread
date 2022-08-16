@@ -35,6 +35,7 @@ public class ExecutorsSigleThreadCallable {
     private static class Task implements Callable<String> { // O callable retorna um valor.
         @Override
         public String call() throws Exception {
+//            Thread.sleep(1000);
             String nameThread = Thread.currentThread().getName();
             int number = new Random().nextInt(1000);
             return "(Nome Thread: " + nameThread + ", número Random: " + number + ")";
