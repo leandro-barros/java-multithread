@@ -6,14 +6,23 @@ import java.util.concurrent.*;
 public class ExecutorsMultithread {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        ExecutorService executor = Executors.newFixedThreadPool(4);
-        Future<String> future1 = executor.submit(new Task());
-        Future<String> future2 = executor.submit(new Task());
-        Future<String> future3 = executor.submit(new Task());
-        System.out.println(future1.get());
-        System.out.println(future2.get());
-        System.out.println(future3.get());
-        executor.shutdown();
+        ExecutorService executor = null;
+        try {
+            executor = Executors.newFixedThreadPool(4);
+            Future<String> future1 = executor.submit(new Task());
+            Future<String> future2 = executor.submit(new Task());
+            Future<String> future3 = executor.submit(new Task());
+            System.out.println(future1.get());
+            System.out.println(future2.get());
+            System.out.println(future3.get());
+            executor.shutdown();
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (executor != null) {
+                executor.shutdownNow();
+            }
+        }
     }
 
     public static class Task implements Callable<String> {
