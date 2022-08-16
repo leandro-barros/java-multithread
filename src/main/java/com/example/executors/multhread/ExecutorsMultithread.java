@@ -41,16 +41,11 @@ public class ExecutorsMultithread {
             executor = Executors.newCachedThreadPool();
 
             List<Task> tasks = new ArrayList<>();
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 10; i++) {
                 tasks.add(new Task());
             }
-
-            List<Future<String>> futures = executor.invokeAll(tasks);
-
-            for (Future<String> future : futures) {
-                System.out.println(future.get());
-            }
-
+            String task = executor.invokeAny(tasks); // Irá executar apenas uma tarefa.
+            System.out.println(task);
             executor.shutdown();
         } catch (Exception e) {
             throw e;
