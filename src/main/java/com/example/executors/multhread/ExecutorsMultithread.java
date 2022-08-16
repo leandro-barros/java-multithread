@@ -8,11 +8,13 @@ public class ExecutorsMultithread {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService executor = null;
         try {
-            executor = Executors.newFixedThreadPool(4);
+//            executor = Executors.newFixedThreadPool(4);
+            executor = Executors.newCachedThreadPool(); // Cria thread até quando precisar no que pode ser um problema
             Future<String> future1 = executor.submit(new Task());
+            System.out.println(future1.get());
             Future<String> future2 = executor.submit(new Task());
             Future<String> future3 = executor.submit(new Task());
-            System.out.println(future1.get());
+
             System.out.println(future2.get());
             System.out.println(future3.get());
             executor.shutdown();
