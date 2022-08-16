@@ -1,9 +1,7 @@
 package com.example.executors;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
+import java.util.Random;
+import java.util.concurrent.*;
 
 public class ExecutorsSigleThreadCallable {
 
@@ -11,14 +9,17 @@ public class ExecutorsSigleThreadCallable {
         ExecutorService executorService = null;
         try {
             executorService = Executors.newSingleThreadExecutor();
-            executorService.execute(new Task()); // Pode-se ser chamado várias vezes
-            executorService.execute(new Task());
-            Future<?> future = executorService.submit(new Task());
 
-            System.out.println(future.isDone());
-            executorService.shutdown();// Finaliza todas as tarefas e não aceita novas.
-            executorService.awaitTermination(10, TimeUnit.SECONDS); // Usa com  executorService.shutdown(); este espera a tarefa finalizar
-            System.out.println(future.isDone());
+            Future<String> future = executorService.submit(new Task());
+
+            System.out.println("Finalizou: " + future.isDone());
+            String value = future.get();
+            System.out.println("Value: " + value);
+            System.out.println("Finalizou: " + future.isDone());
+
+//            executorService.shutdown();// Finaliza todas as tarefas e não aceita novas.
+//            executorService.awaitTermination(10, TimeUnit.SECONDS); // Usa com  executorService.shutdown(); este espera a tarefa finalizar
+//            System.out.println(future.isDone());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -30,11 +31,12 @@ public class ExecutorsSigleThreadCallable {
         }
     }
 
-    private static class Task implements Runnable {
+    private static class Task implements Callable<String> { // O callable retorna um valor.
         @Override
-        public void run() {
+        public String call() throws Exception {
             String nameThread = Thread.currentThread().getName();
-            System.out.println(nameThread + ": Executou.");
+            int number = new Random().nextInt(1000);
+            return "(Nome Thread: " + nameThread + ", número Random: " + number + ")";
         }
     }
 }
