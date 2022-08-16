@@ -14,6 +14,7 @@ public class ExecutorsSigleThreadCallable {
 
             System.out.println("Finalizou: " + future.isDone());
             String value = future.get();
+//            String value = future.get(1, TimeUnit.SECONDS);
             System.out.println("Value: " + value);
             System.out.println("Finalizou: " + future.isDone());
 
