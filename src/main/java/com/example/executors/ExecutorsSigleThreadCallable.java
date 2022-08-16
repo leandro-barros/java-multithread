@@ -6,12 +6,21 @@ import java.util.concurrent.TimeUnit;
 
 public class ExecutorsSigleThreadCallable {
 
-    public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        executorService.execute(new Task());
+    public static void main(String[] args) {
+        ExecutorService executorService = null;
+        try {
+            executorService = Executors.newSingleThreadExecutor();
+            executorService.execute(new Task());
 
-        executorService.awaitTermination(5, TimeUnit.SECONDS);
-        executorService.shutdown();
+            executorService.awaitTermination(5, TimeUnit.SECONDS);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (executorService != null) {
+                executorService.shutdown();
+            }
+        }
     }
 
     private static class Task implements Runnable {
