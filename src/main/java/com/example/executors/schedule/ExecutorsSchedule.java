@@ -5,8 +5,14 @@ import java.util.concurrent.*;
 
 public class ExecutorsSchedule {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(3);
 
+        ScheduledFuture<String> future = executor.schedule(new Task(), 2, TimeUnit.SECONDS);
+
+        System.out.println(future.get());
+
+        executor.shutdown();
     }
 
     public static class Task implements Callable<String> {
