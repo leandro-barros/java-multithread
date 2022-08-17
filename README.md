@@ -20,7 +20,7 @@
 </p>
 
 <h4 align="center"> 
-	🚧  Java Multithread ♻️ Concluído 🚀 🚧
+	🚧  Java Multithread ♻️ Em construção 🚀 🚧
 </h4>
 
 ## 💻 Sobre o projeto
