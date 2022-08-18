@@ -19,7 +19,7 @@ public class ExecutorsSchedule {
         @Override
         public void run() {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(2000);// Caso a tarefa demore mais de 1 segundo o schedule espera ela finalizar para executar outra.
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
