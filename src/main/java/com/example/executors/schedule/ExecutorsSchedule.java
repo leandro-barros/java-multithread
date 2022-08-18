@@ -1,6 +1,5 @@
 package com.example.executors.schedule;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.concurrent.*;
@@ -11,7 +10,8 @@ public class ExecutorsSchedule {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(3);
 
 //        executor.schedule(new Task(), 2, TimeUnit.SECONDS);
-        executor.scheduleAtFixedRate(new Task(), 0, 1, TimeUnit.SECONDS);
+//        executor.scheduleAtFixedRate(new Task(), 0, 1, TimeUnit.SECONDS);
+        executor.scheduleWithFixedDelay(new Task(), 0, 1, TimeUnit.SECONDS);
 //        executor.shutdown();
     }
 
