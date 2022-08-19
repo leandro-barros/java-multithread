@@ -1,11 +1,10 @@
 package com.example.cyclicbarrier;
 
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 public class CyclicBarrier2 {
+
+    private static BlockingQueue<Double> result = new LinkedBlockingQueue<>();
 
     public static void main(String[] args) {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
@@ -13,17 +12,17 @@ public class CyclicBarrier2 {
         ExecutorService executor = Executors.newFixedThreadPool(3);
 
         Runnable r1 = () -> {
-            System.out.println(432d * 3d);
+            result.add(432d * 3d);
             await(cyclicBarrier);
             System.out.println("Terminei o processamento.");
         };
         Runnable r2 = () -> {
-            System.out.println(Math.pow(3d, 14d));
+            result.add(Math.pow(3d, 14d));
             await(cyclicBarrier);
             System.out.println("Terminei o processamento.");
         };
         Runnable r3 = () -> {
-            System.out.println(45d * 127d / 12d);
+            result.add(45d * 127d / 12d);
             await(cyclicBarrier);
             System.out.println("Terminei o processamento.");
         };
