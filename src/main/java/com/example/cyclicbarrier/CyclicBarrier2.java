@@ -7,6 +7,18 @@ public class CyclicBarrier2 {
     private static BlockingQueue<Double> result = new LinkedBlockingQueue<>();
 
     public static void main(String[] args) {
+
+        Runnable finnaly = () -> {
+            System.out.println("Somando tudo");
+
+            double resultFinnaly = 0;
+            resultFinnaly += result.poll();
+            resultFinnaly += result.poll();
+            resultFinnaly += result.poll();
+
+            System.out.println("Processamento finalizado. Resultado final: " + resultFinnaly);
+        };
+
         CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
 
         ExecutorService executor = Executors.newFixedThreadPool(3);
