@@ -19,7 +19,7 @@ public class CyclicBarrier2 {
             System.out.println("Processamento finalizado. Resultado final: " + resultFinnaly);
         };
 
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(3, finnaly);
 
         ExecutorService executor = Executors.newFixedThreadPool(3);
 
