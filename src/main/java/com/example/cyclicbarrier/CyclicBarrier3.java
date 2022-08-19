@@ -36,6 +36,12 @@ public class CyclicBarrier3 {
             result.add(432d * 3d);
             await(cyclicBarrier);
             System.out.println("Terminei o processamento.");
+
+//            while (true) {
+//                result.add(432d * 3d);
+//                await(cyclicBarrier);
+//                System.out.println("Terminei o processamento.");
+//            }
         };
         r2 = () -> {
             result.add(Math.pow(3d, 14d));
