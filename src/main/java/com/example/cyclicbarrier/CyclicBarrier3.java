@@ -6,9 +6,15 @@ public class CyclicBarrier3 {
 
     private static BlockingQueue<Double> result = new LinkedBlockingQueue<>();
 
+    private static ExecutorService executor;
+
+    private static Runnable r1;
+    private static Runnable r2;
+    private static Runnable r3;
+
     public static void main(String[] args) {
 
-        Runnable finnaly = () -> {
+        Runnable summarization = () -> {
             System.out.println("Somando tudo");
 
             double resultFinnaly = 0;
@@ -17,33 +23,34 @@ public class CyclicBarrier3 {
             resultFinnaly += result.poll();
 
             System.out.println("Processamento finalizado. Resultado final: " + resultFinnaly);
+
+            System.out.println("-----------------------------------");
+            restart();
         };
 
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(3, finnaly);
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(3, summarization);
 
-        ExecutorService executor = Executors.newFixedThreadPool(3);
+        executor = Executors.newFixedThreadPool(3);
 
-        Runnable r1 = () -> {
+        r1 = () -> {
             result.add(432d * 3d);
             await(cyclicBarrier);
             System.out.println("Terminei o processamento.");
         };
-        Runnable r2 = () -> {
+        r2 = () -> {
             result.add(Math.pow(3d, 14d));
             await(cyclicBarrier);
             System.out.println("Terminei o processamento.");
         };
-        Runnable r3 = () -> {
+        r3 = () -> {
             result.add(45d * 127d / 12d);
             await(cyclicBarrier);
             System.out.println("Terminei o processamento.");
         };
 
-        executor.submit(r1);
-        executor.submit(r2);
-        executor.submit(r3);
+        restart();
 
-        executor.shutdown();
+//        executor.shutdown();
     }
 
     private static void await(CyclicBarrier cyclicBarrier) {
@@ -53,6 +60,18 @@ public class CyclicBarrier3 {
             Thread.currentThread().interrupt();
             e.printStackTrace();
         }
+    }
+
+    private static void restart() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        executor.submit(r1);
+        executor.submit(r2);
+        executor.submit(r3);
     }
 
 }
