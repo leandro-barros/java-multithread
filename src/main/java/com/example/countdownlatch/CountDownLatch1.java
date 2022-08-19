@@ -28,6 +28,7 @@ public class CountDownLatch1 {
         while (true) {
             await();
             i = new Random().nextInt(100);
+            countDownLatch = new CountDownLatch(3);
         }
 
 //        while (true) {
