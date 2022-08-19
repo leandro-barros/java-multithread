@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CountDownLatch1 {
 
-    private static int i = 0;
+    private static volatile int i = 0;
 
     public static void main(String[] args) {
 
@@ -20,5 +20,18 @@ public class CountDownLatch1 {
         };
 
         executor.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
+
+        while (true) {
+            sleep();
+            i = new Random().nextInt(100);
+        }
+    }
+
+    private static void sleep() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
