@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
 public class Semaphore2 {
 
@@ -16,7 +17,10 @@ public class Semaphore2 {
             String name = Thread.currentThread().getName();
             int idUser = new Random().nextInt(10000);
 
-            acquire();
+            boolean ok = false;
+            while (!ok) {
+                ok = tryAcquire();
+            }
             System.out.println("Print nome usuário (" + idUser + ") com thread " + name);
             sleep();
             SEMAPHORE.release();
@@ -30,12 +34,13 @@ public class Semaphore2 {
         executor.shutdown();
     }
 
-    private static void acquire() {
+    private static boolean tryAcquire() {
         try {
-            SEMAPHORE.acquire();
+            return SEMAPHORE.tryAcquire(1, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             e.printStackTrace();
+            return false;
         }
     }
 
