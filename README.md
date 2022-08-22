@@ -30,6 +30,11 @@
 
 ## 🛠 Tecnologias
 
+A seguinte linguagem foi utilizada na construção do projeto:
+
+- [Java 11](https://aws.amazon.com/pt/corretto/?filtered-posts.sort-by=item.additionalFields.createdDate&filtered-posts.sort-order=desc)
+- [Maven](https://maven.apache.org/)
+
 ## 👨‍💻 Autor
 
 <a href="https://www.linkedin.com/in/leandroebarros/">
