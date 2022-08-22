@@ -16,10 +16,10 @@ public class Semaphore1 {
             String name = Thread.currentThread().getName();
             int idUser = new Random().nextInt(10000);
 
-            acquire();
+            acquire(); // Tenta consegui uma vaga no semáfaro
             System.out.println("Print nome usuário (" + idUser + ") com thread " + name);
             sleep();
-            SEMAPHORE.release();
+            SEMAPHORE.release();// Libera a vaga no semáfaro
         };
 
 
