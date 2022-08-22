@@ -18,6 +18,8 @@ public class Semaphore1 {
 
             acquire();
             System.out.println("Print nome usuário (" + idUser + ") com thread " + name);
+            sleep();
+            SEMAPHORE.release();
         };
 
 
@@ -31,6 +33,17 @@ public class Semaphore1 {
     private static void acquire() {
         try {
             SEMAPHORE.acquire();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            e.printStackTrace();
+        }
+    }
+
+    private static void sleep() {
+        try {
+            int time = new Random().nextInt(6);
+            time++;
+            Thread.sleep(1000 * time);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             e.printStackTrace();
