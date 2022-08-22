@@ -28,6 +28,8 @@
 
 ## 🚀 Executar o projeto
 
+## 🛠 Tecnologias
+
 ## 👨‍💻 Autor
 
 <a href="https://www.linkedin.com/in/leandroebarros/">
