@@ -19,13 +19,23 @@ public class ReentrantReadWriteLock1 {
             Lock writeLock = lock.writeLock();
             writeLock.lock();
             String nameThread = Thread.currentThread().getName();
+            System.out.println(nameThread + " - Escrevendo: " + i);
             i++;
-            System.out.println(nameThread + " lendo incremento " + i);
+            System.out.println(nameThread + " - Escrito: " + i);
             writeLock.unlock();
+        };
+
+        Runnable r2 = () -> {
+            Lock readLock = lock.readLock();
+            readLock.lock();
+            System.out.println("Lendo: " + i);
+            System.out.println("Lido: " + i);
+            readLock.unlock();
         };
 
         for (int j = 0; j < 6; j++) {
             executor.execute(r1);
+            executor.execute(r2);
         }
 
         executor.shutdown();
