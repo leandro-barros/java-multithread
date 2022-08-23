@@ -15,7 +15,7 @@ public class ReentrantReadWriteLock1 {
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
 
-        Runnable runnable = () -> {
+        Runnable r1 = () -> {
             Lock writeLock = lock.writeLock();
             writeLock.lock();
             String nameThread = Thread.currentThread().getName();
@@ -25,7 +25,7 @@ public class ReentrantReadWriteLock1 {
         };
 
         for (int j = 0; j < 6; j++) {
-            executor.execute(runnable);
+            executor.execute(r1);
         }
 
         executor.shutdown();
