@@ -30,7 +30,8 @@ public class SynchronousQueue1 {
 
     private static void put() {
         try {
-            QUEUE.put("Message sending");
+            QUEUE.put("Message sending");// Coloca messagem na fila.
+//            QUEUE.offer(e, timeout, unit); // Coloca algo na fila tentando em um determinado tempo.
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             e.printStackTrace();
@@ -39,7 +40,8 @@ public class SynchronousQueue1 {
 
     private static String take() {
         try {
-            return QUEUE.take();
+            return QUEUE.take(); // pega algo da fila
+//            return QUEUE.poll(timeout, unit); // Define um limite de tempo para pegar algo da fila.
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             e.printStackTrace();
