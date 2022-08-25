@@ -18,16 +18,21 @@ public class ProducerConsumer {
                 simulateProcessing();
 
                 if (producing) {
+                    System.out.println("Produzindo");
                     int number = new Random().nextInt(10000);
                     INTEGER_LIST.add(number);
 
                     if (INTEGER_LIST.size() == 5) {
+                        System.out.println("Pausando produtor");
                         producing = false;
                     }
 
                     if (INTEGER_LIST.size() == 1) {
+                        System.out.println("Iniciando consumidor");
                         consuming = true;
                     }
+                } else {
+                    System.out.println("-------- Produtor dormindo!");
                 }
             }
         });
@@ -37,18 +42,23 @@ public class ProducerConsumer {
                 simulateProcessing();
 
                 if (consuming) {
+                    System.out.println("Consumindo");
                     Optional<Integer> number = INTEGER_LIST.stream().findFirst();
                     number.ifPresent(n -> {
                         INTEGER_LIST.remove(n);
                     });
 
                     if (INTEGER_LIST.size() == 0) {
+                        System.out.println("Pausando consumidor");
                         consuming = false;
                     }
 
                     if (INTEGER_LIST.size() == 4) {
+                        System.out.println("Iniciando produtor");
                         producing = true;
                     }
+                } else {
+                    System.out.println("******** Consumidor dormindo!");
                 }
             }
         });
