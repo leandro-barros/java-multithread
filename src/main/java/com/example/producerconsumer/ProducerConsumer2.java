@@ -1,18 +1,22 @@
 package com.example.producerconsumer;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 2) Região critica e exclusão mútua.
  */
 public class ProducerConsumer2 {
 
-    private static final List<Integer> INTEGER_LIST = new ArrayList<>(5);
-    private static boolean producing = true;
-    private static boolean consuming = true;
+    private static final BlockingQueue<Integer> INTEGER_LIST = new LinkedBlockingDeque<>(5);
+    private static volatile boolean producing = true;
+    private static volatile boolean consuming = true;
+
+    private static final Lock LOCK = new ReentrantLock();
 
     public static void main(String[] args) {
 
@@ -22,6 +26,7 @@ public class ProducerConsumer2 {
                     simulateProcessing();
 
                     if (producing) {
+                        LOCK.lock();
                         System.out.println("Produzindo");
                         int number = new Random().nextInt(10000);
                         INTEGER_LIST.add(number);
@@ -35,6 +40,7 @@ public class ProducerConsumer2 {
                             System.out.println("Iniciando consumidor");
                             consuming = true;
                         }
+                        LOCK.unlock();
                     } else {
                         System.out.println("-------- Produtor dormindo!");
                     }
@@ -50,6 +56,7 @@ public class ProducerConsumer2 {
                     simulateProcessing();
 
                     if (consuming) {
+                        LOCK.lock();
                         System.out.println("Consumindo");
                         Optional<Integer> number = INTEGER_LIST.stream().findFirst();
                         number.ifPresent(n -> {
@@ -65,6 +72,7 @@ public class ProducerConsumer2 {
                             System.out.println("Iniciando produtor");
                             producing = true;
                         }
+                        LOCK.unlock();
                     } else {
                         System.out.println("******** Consumidor dormindo!");
                     }
