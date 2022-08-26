@@ -1,10 +1,7 @@
 package com.example.producerconsumer;
 
-import java.util.Optional;
 import java.util.Random;
 import java.util.concurrent.*;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 3) Usando as ferramentas certas em comparação com o exemplo 1 e 2
