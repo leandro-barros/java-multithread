@@ -23,6 +23,14 @@
 	🚧  Java Multithread ♻️ Em construção 🚀 🚧
 </h4>
 
+<p align="center">
+ <a href="#-sobre-o-projeto">Sobre o Projeto</a> •
+ <a href="#-executar-o-projeto">Executar Projeto</a> • 
+ <a href="#-tecnologias">Tecnologias</a> • 
+ <a href="#-autor">Autor</a> • 
+ <a href="#-licença">Licença</a>
+</p>
+
 ## 💻 Sobre o projeto
 
 
@@ -30,7 +38,7 @@
 
 ## 🛠 Tecnologias
 
-A seguinte linguagem foi utilizada na construção do projeto:
+As seguintes ferramentas foram utilizadas na construção do projeto:
 
 - [Java 11](https://aws.amazon.com/pt/corretto/?filtered-posts.sort-by=item.additionalFields.createdDate&filtered-posts.sort-order=desc)
 - [Maven](https://maven.apache.org/)
