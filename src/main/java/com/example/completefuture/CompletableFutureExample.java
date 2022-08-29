@@ -2,7 +2,7 @@ package com.example.completefuture;
 
 import java.util.concurrent.CompletableFuture;
 
-public class CompleteFutureExample {
+public class CompletableFutureExample {
 
     public static void main(String[] args) {
 
