@@ -6,7 +6,26 @@ public class CompleteFutureExample {
 
     public static void main(String[] args) {
 
+        CompletableFuture<String> process = process();
 
+        CompletableFuture<String> thenApply =
+                process.thenApply(s -> s + " Imprime thenApply");
+
+        CompletableFuture<Void> thenAccept =
+                thenApply.thenAccept(s -> System.out.println(s));
+
+        System.out.println("Final execução");
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
