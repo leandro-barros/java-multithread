@@ -26,8 +26,8 @@ public class ProducerConsumer3 {
         };
 
         Runnable consumer = () -> {
-            // simulateProcessing();
-            simulateProcessingSlow();
+            simulateProcessing();
+//            simulateProcessingSlow();
             System.out.println("Consumindo");
 
             try {
@@ -54,13 +54,13 @@ public class ProducerConsumer3 {
         }
     }
 
-    private static final void simulateProcessingSlow() {
-        int time = new Random().nextInt(10);
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            e.printStackTrace();
-        }
-    }
+//    private static final void simulateProcessingSlow() {
+//        int time = new Random().nextInt(10);
+//        try {
+//            Thread.sleep(time);
+//        } catch (InterruptedException e) {
+//            Thread.currentThread().interrupt();
+//            e.printStackTrace();
+//        }
+//    }
 }
