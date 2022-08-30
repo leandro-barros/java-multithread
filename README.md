@@ -33,6 +33,7 @@
 
 ## 💻 Sobre o projeto
 
+Projeto implementado para a praticar o assunto de thread e multithread na linguagem Java. Foram abordados conteúdos desde do básico ao avançado, permitindo conhecimento para desenvolver projetos com multithead com Java.
 
 ## 🚀 Executar o projeto
 
