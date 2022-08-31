@@ -50,7 +50,7 @@ Das opções para trabalhar com thread/multithread abordadas no projeto podem se
 
 ## 🚀 Executar o projeto
 
-Este repositório é um projeto utilizando a ferramenta Java.
+Este repositório é um projeto utilizando a linguagem Java.
 
 ### Pré-requisitos
 
