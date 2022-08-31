@@ -50,11 +50,26 @@ Das opções para trabalhar com thread/multithread abordadas no projeto podem se
 
 ## 🚀 Executar o projeto
 
+Este repositório é um projeto utilizando a ferramenta Java.
+
+### Pré-requisitos
+
+Para executar o projeto precisa-se ter instalado em sua máquina somente o JDK do [Java](https://aws.amazon.com/pt/corretto/?filtered-posts.sort-by=item.additionalFields.createdDate&filtered-posts.sort-order=desc). Para clonar o projeto utilize o [Git](https://git-scm.com).
+Além disto é bom ter um editor para trabalhar com o código como [Intellij](https://www.jetbrains.com/pt-br/idea/) para facilitar na execução dos exemplos.
+
+#### 🧭 Rodando o projeto
+
+```bash
+# Clone este repositório
+$ git clone <https://github.com/leandro-barros/java-multithread.git>
+
+# Na classe principal dos exemplos execute o projeto.
+```
 ## 🛠 Tecnologias
 
 As seguintes ferramentas foram utilizadas na construção do projeto:
 
-- [Java 11](https://aws.amazon.com/pt/corretto/?filtered-posts.sort-by=item.additionalFields.createdDate&filtered-posts.sort-order=desc)
+- [Java 8+](https://aws.amazon.com/pt/corretto/?filtered-posts.sort-by=item.additionalFields.createdDate&filtered-posts.sort-order=desc)
 - [Maven](https://maven.apache.org/)
 
 ## 👨‍💻 Autor
