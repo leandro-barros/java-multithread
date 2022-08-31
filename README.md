@@ -33,7 +33,20 @@
 
 ## 💻 Sobre o projeto
 
-Projeto implementado para a praticar o assunto de thread e multithread na linguagem Java. Foram abordados conteúdos desde do básico ao avançado, permitindo conhecimento para desenvolver projetos com multithead com Java.
+Projeto criado para praticar conhecimentos teórico adquirido sobre thread e multithread na linguagem Java. Foram abordados conteúdos desde do básico ao avançado, por exemplo, assuntos como paralelismo, concorrência, deadlock e semáforo onde auxilia no desenvolvimento de aplicações robustas e rápidas com Java.
+
+Das opções para trabalhar com thread/multithread abordadas no projeto podem serem citados:
+* Classe Thread, Runnable e Callable
+* Sichronized
+* Semáforo
+* Deadlock
+* Race Condition
+* Critical Section
+* ScheduledExecutorService 
+* CyclicBarrier
+* CountDownLatch 
+* Lock
+* SynchronousQueue e Exchanger
 
 ## 🚀 Executar o projeto
 
