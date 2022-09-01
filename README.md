@@ -20,7 +20,7 @@
 </p>
 
 <h4 align="center"> 
-	🚧  Java Multithread ♻️ Em construção 🚀 🚧
+	🚧  Java Multithread ♻️ Concluído 🚀 🚧
 </h4>
 
 <p align="center">
@@ -37,7 +37,11 @@ Projeto criado para praticar conhecimentos teórico adquirido sobre thread e mul
 
 Das opções para trabalhar com thread/multithread abordadas no projeto podem serem citados:
 * Classe Thread, Runnable e Callable
-* Sichronized
+* Sinchronized
+* Collections synchronizedMap e synchronizedList
+* Collections Thread-safe
+* Class Atomic
+* Volatile
 * Semáforo
 * Deadlock
 * Race Condition
